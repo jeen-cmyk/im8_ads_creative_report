@@ -10,7 +10,7 @@ from urllib.request import urlopen, Request
 from urllib.parse import urlencode
 from urllib.error import URLError
 
-META_TOKEN  = os.environ.get("META_ACCESS_TOKEN", "")
+META_TOKEN  = os.environ.get("META_ACCESS_TOKEN", "EAAVPWRdQkXIBRFoZCQV6aFmXPVSMAfkBFOSD8g5dvokxNOUi69Iaag3ZA9ZBAd6HQTfaEv529QLlPSTRfbjmKOI0dZCJuTk1L7EfYVZBqke9hZCjYcjHGIY9cSD6wFtch666c4FQKaZBjiKXIYiAkRp71j5U5YHkWv0XDGy6ZCQnqBZBWN0ZAKLVTPHmg1PyBpactGI6jYvgAIIyam0xkgBtoYRZCHIZAQ7qAWCLyQQG4oSVHptI4632rMZBTmhrKguhZB9RIf2pTFgDA9iTycjiLScDfJ5pndDgZDZD")
 AD_ACCOUNT  = "act_1000723654649396"
 API_VER     = "v20.0"
 BASE        = f"https://graph.facebook.com/{API_VER}"
