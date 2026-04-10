@@ -1,0 +1,36 @@
+name: Generate Winners Report
+
+on:
+  push:
+    paths:
+      - '*.xlsx'
+      - '*.xls'
+      - 'exports/*.xlsx'
+      - 'exports/*.xls'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install openpyxl xlrd --break-system-packages
+
+      - name: Process XLS + fetch Meta creatives
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+        run: python process.py
+
+      - name: Commit and push index.html
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "Winners report — $(date +'%-d %b %Y')"
+          git push
