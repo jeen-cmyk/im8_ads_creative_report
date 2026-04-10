@@ -108,19 +108,19 @@ def process_xls(path):
     if not rows: return []
 
     headers = list(rows[0].keys())
-    roas_col  = col(headers, r'roas')
-    purch_col = col(headers, r'^purchases$|^purchases$')
-    spend_col = col(headers, r'amount spent|spend')
-    rev_col   = col(headers, r'conversion value')
-    cpa_col   = col(headers, r'cost per purchase')
-    ctr_col   = col(headers, r'ctr|click.through')
-    hook_col  = col(headers, r'hook')
-    hold_col  = col(headers, r'hold')
-    url_col   = col(headers, r'website url')
-    ad_id_col = col(headers, r'ad id|^id$')
-    ad_name_col = col(headers, r'ad name')
-    camp_col  = col(headers, r'campaign name')
-    adset_col = col(headers, r'ad set name')
+    roas_col    = col(headers, r'(?i)^roas$')
+    purch_col   = col(headers, r'(?i)^purchases$')
+    spend_col   = col(headers, r'(?i)amount spent')
+    rev_col     = col(headers, r'(?i)purchases conversion value')
+    cpa_col     = col(headers, r'(?i)cost per purchase')
+    ctr_col     = col(headers, r'(?i)ctr')
+    hook_col    = col(headers, r'(?i)hook rate')
+    hold_col    = col(headers, r'(?i)hold rate')
+    url_col     = col(headers, r'(?i)website url')
+    ad_id_col   = col(headers, r'(?i)^ad id$')
+    ad_name_col = col(headers, r'(?i)^ad name$')
+    camp_col    = col(headers, r'(?i)^campaign name$')
+    adset_col   = col(headers, r'(?i)^ad set name$')
 
     ads = []
     for row in rows:
